@@ -20,6 +20,7 @@ public class FileReader
 		int Counter1=0;
 		try  
 		{  
+			// Read File 
 			File file = new File("D:\\CarsBaInfo.xlsx");   
 			FileInputStream fis = new FileInputStream(file);  
 			XSSFWorkbook wb = new XSSFWorkbook(fis);   
@@ -32,6 +33,7 @@ public class FileReader
 				while (cellIterator.hasNext())   
 				{  
 					Cell cell = cellIterator.next();  
+					// Select car model from excel file
 					if (cell.getColumnIndex()==1 ){
 						switch (cell.getCellType())               
 						{  
@@ -39,24 +41,29 @@ public class FileReader
 							CarBrand[Counter1]=cell.getStringCellValue();
 							break;  
 						case Cell.CELL_TYPE_NUMERIC:  
+							// skip if its not String
 							break;  
 						default:  
 						}
 					}
+					// select batteries capacity column 
 					else if (cell.getColumnIndex()==2 ){
 						switch (cell.getCellType())               
 						{  
 						case Cell.CELL_TYPE_STRING:  
+							// skip if its not number
 							break;  
 						case Cell.CELL_TYPE_NUMERIC: 
 							Capacity[Counter1]=cell.getNumericCellValue();
 							break;
 						}  
 					}
+					// select time to charging info
 					else if (cell.getColumnIndex()==7 ){
 						switch (cell.getCellType())               
 						{  
-						case Cell.CELL_TYPE_STRING:     
+						case Cell.CELL_TYPE_STRING:  
+							// skip if its not number
 							break;  
 						case Cell.CELL_TYPE_NUMERIC:   
 							Charge[Counter1]=cell.getNumericCellValue();
