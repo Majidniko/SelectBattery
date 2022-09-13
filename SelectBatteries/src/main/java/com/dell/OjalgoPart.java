@@ -9,9 +9,9 @@ import org.ojalgo.optimisation.Variable;
 
 public class OjalgoPart  {
 	static FileReader fr=new FileReader();
-	public static String n[]=fr.name();
-	public static double c[]=fr.capacity();
-	public static double ch[]=fr.ChargingTime();
+	public static String n[]=FileReader.name();
+	public static double c[]=FileReader.capacity();
+	public static double ch[]=FileReader.ChargingTime();
 	public static void Optimize(int size,int Row) {
 		System.out.println(OjalgoPart.class);
 		System.out.println(OjAlgoUtils.getTitle());
@@ -29,10 +29,6 @@ public class OjalgoPart  {
 		result = model.maximise();
 		System.out.println();
 		System.out.println(result);
-
-
-
-
 	}
 
 

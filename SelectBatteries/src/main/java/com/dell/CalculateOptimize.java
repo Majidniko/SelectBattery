@@ -3,9 +3,11 @@ package com.dell;
 import java.util.Scanner;
 
 public class CalculateOptimize {
+private static Scanner input;
+
 public static void main(String[] arg) {
 	long startTime = System.nanoTime();
-    Scanner input = new Scanner(System.in);
+    input = new Scanner(System.in);
     System.out.println( "Please enter battery pack size in Kwh  ");
     String inputStr0 = input.next();
    
@@ -17,7 +19,6 @@ public static void main(String[] arg) {
     	 System.out.println("Top Optimal conditiones calculated in Kwh");
     }catch(Exception e){
     	System.out.println("Error in running, Please chek input value!");
-    	
     }
 	long endTime = System.nanoTime();
 	long duration = (endTime - startTime);
